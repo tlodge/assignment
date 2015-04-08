@@ -1,0 +1,59 @@
+getting started
+----------------
+
+create a new directory
+create a file called composer.json as:
+
+{
+    "require": {
+        "silex/silex": "~1.2",
+		"doctrine/dbal": "~2.2"
+    }
+}
+
+now in the same directory:
+
+curl -sS https://getcomposer.org/installer | php
+./composer.phar install
+
+
+setting up apache
+------------------
+
+create .htaccess:
+
+FallbackResource /index.php
+
+and in httpd.conf:
+
+DocumentRoot "/Users/tlodge/assignment/web"
+
+<Directory "/Users/tlodge/assignment/web">
+    Options FollowSymLinks Multiviews
+    MultiviewsMatch Any
+    AllowOverride All
+    Require all granted
+    DirectoryIndex index.php
+</Directory>
+
+
+setting up a database
+----------------------
+
+in the root directory:
+
+do a sqlite3 mydatabase.db
+
+in the console:
+
+CREATE TABLE testdata (
+    widget VARCHAR(30),
+    total INT,
+    PRIMARY KEY(widget)
+);
+
+INSERT INTO testdata(widget, total) VALUES ('widget one', 34);
+INSERT INTO testdata(widget, total) VALUES ('widget two', 54);
+INSERT INTO testdata(widget, total) VALUES ('widget three', 84);
+INSERT INTO testdata(widget, total) VALUES ('widget four', 39);
+

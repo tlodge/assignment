@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div id="maincontent">
+		<h1> hello this is a test {{name}}</h1>
+		<h2> and some javscript too <span data-bind="text:firstname"></span></h2> 
+		<a href="#" class="button" data-bind="click:submit">Test Submit Button</a>
+	</div>
+{% endblock %}
